@@ -44,20 +44,21 @@ function update() {
 		$('g.forces line.friction').attr("y2", 0);
 		$('line.speed').attr("y2",0);
 		if(leftPressed && !rightPressed) {
-			$('g.forces line.horizontal').attr("x2",-50);	
+			$('g.forces line.horizontal').attr("x2",-60);	
 		}
 		if(!leftPressed && rightPressed) {
-			$('g.forces line.horizontal').attr("x2",50);	
+			$('g.forces line.horizontal').attr("x2",60);	
 		}
 		if(upPressed) {
 			$('g.forces line.vertical').attr("y2",-150);
 		}
+		$('g.forces line.friction').attr("x2", 0.01 * (speedX * speedX) * (speedX > 0 ? -1 : 1));
 	} else {
 		// We're in the air
 		$('g.forces line.reaction').attr("y2", 0);
 		$('g.forces line.friction').attr("y2", 0.01 * (speedY * speedY) * (speedY > 0 ? -1 : 1));
+		$('g.forces line.friction').attr("x2", 0.001 * (speedX * speedX) * (speedX > 0 ? -1 : 1));
 	}
-	$('g.forces line.friction').attr("x2", 0.01 * (speedX * speedX) * (speedX > 0 ? -1 : 1));
 	console.log("translate("+nx+","+ny+")");
 	p.attr("transform","translate("+nx+","+ny+")");
 }
