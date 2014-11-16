@@ -44,10 +44,10 @@ function update() {
 		$('g.forces line.friction').attr("y2", 0);
 		$('line.speed').attr("y2",0);
 		if(leftPressed && !rightPressed) {
-			$('g.forces line.horizontal').attr("x2",-30);	
+			$('g.forces line.horizontal').attr("x2",-50);	
 		}
 		if(!leftPressed && rightPressed) {
-			$('g.forces line.horizontal').attr("x2",30);	
+			$('g.forces line.horizontal').attr("x2",50);	
 		}
 		if(upPressed) {
 			$('g.forces line.vertical').attr("y2",-150);
