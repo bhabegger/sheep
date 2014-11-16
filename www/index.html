@@ -7,9 +7,30 @@
 		<div class="actions" style="display: none"></div>
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 		width="1400" height="767" style="background-image: url(media/back-margot-001.png); background-size: 1400px 767px ">
-			<g transform="translate(0,0)" id="player1">
-				<image x="-200" y="550" width="600" height="200"
+			<defs>
+			    <marker id="Triangle"
+			      viewBox="0 0 10 10" refX="0" refY="5" 
+			      markerUnits="strokeWidth"
+			      markerWidth="4" markerHeight="3"
+			      orient="auto">
+			      <path d="M 0 0 L 10 5 L 0 10 z" />
+			    </marker>
+			</defs>
+			<g transform="translate(200,550)" id="player1">
+				<image x="0" y="0" width="280" height="170"
 					xlink:href="media/sheep-alex.png" />
+				<g transform="translate(140,90)" style="display: none">
+					<g class="forces">
+						<line class="gravity"    x1="0" y1="0" x2="0"   y2="40"  fill="none" stroke="blue" stroke-width="5" marker-end="url(#Triangle)"  />
+						<line class="reaction"   x1="0" y1="0" x2="0"   y2="-40"  fill="none" stroke="blue" stroke-width="5" marker-end="url(#Triangle)"  />
+						<line class="friction"   x1="0" y1="0" x2="-10" y2="0"   fill="none" stroke="blue" stroke-width="5" marker-end="url(#Triangle)"  />
+						<line class="cinetique"  x1="0" y1="0" x2="10"  y2="0"   fill="none" stroke="green" stroke-width="5" marker-end="url(#Triangle)"  />
+						<line class="vertical"   x1="0" y1="0" x2="0"   y2="0" fill="none" stroke="grey" stroke-width="5" marker-end="url(#Triangle)" />
+						<line class="horizontal" x1="0" y1="0" x2="0"  y2="0"   fill="none" stroke="grey" stroke-width="5" marker-end="url(#Triangle)" />
+					</g>
+					<line class="acceleration"   x1="0" y1="0" x2="0"  y2="0"   fill="none" stroke="red" stroke-width="5" marker-end="url(#Triangle)"  />
+					<line class="speed"          x1="0" y1="0" x2="0"  y2="0"   fill="none" stroke="purple" stroke-width="5" marker-end="url(#Triangle)"  />
+				</g>
 			</g>
 		</svg>
 	</body>
