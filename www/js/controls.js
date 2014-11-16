@@ -31,7 +31,7 @@ function update() {
 	$('line.speed').attr("x2",speedX);
 	$('line.speed').attr("y2",speedY);
 	
-	var nx = ox + speedX;
+	var nx = (ox + speedX) % 1500;
 	var ny = oy + speedY;
 	
 	// Update forces for next round
