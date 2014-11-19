@@ -68,7 +68,6 @@ function update() {
 		$('g.forces line.friction').attr("y2", 0.01 * (speedY * speedY) * (speedY > 0 ? -1 : 1));
 		$('g.forces line.friction').attr("x2", 0.001 * (speedX * speedX) * (speedX > 0 ? -1 : 1));
 	}
-	console.log("translate("+nx+","+ny+")");
 	p.attr("transform","translate("+nx+","+ny+")");
 }
 
@@ -96,6 +95,11 @@ $(function(){
 		}
 	});
 	
+	$('body').on('keypress', function(evt) {
+		if(evt.which == 32) {
+			$('body').toggleClass("showDynamics");
+		}
+	});
 	setInterval(update,100);
 });
 
