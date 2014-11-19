@@ -17,6 +17,9 @@ function update() {
 		sumX += Number($(this).attr("x2"));
 		sumY += Number($(this).attr("y2"));
 	});
+	
+	var groundY = $('svg').get(0).viewBox.baseVal.height - 200;
+	var sceneWidth = $('svg').get(0).viewBox.baseVal.width;
 
 	if(Math.abs(sumX) <= 1) sumX = 0;
 	if(Math.abs(sumY) <= 1) sumY = 0;
@@ -31,15 +34,21 @@ function update() {
 	$('line.speed').attr("x2",speedX);
 	$('line.speed').attr("y2",speedY);
 	
-	var nx = (ox + speedX) % 1500;
+	var pWidth = Number(p.find("image").attr("width"));
+	var nx = ox + speedX;
+	if(nx > sceneWidth) {
+		nx = - pWidth;
+	} else if (nx < - pWidth) {
+		nx = sceneWidth;
+	}
 	var ny = oy + speedY;
 	
 	// Update forces for next round
 	$('g.forces line.horizontal').attr("x2", 0);
 	$('g.forces line.vertical').attr("y2", 0);
-	if(ny >= 550) {
+	if(ny >= groundY) {
 		// We're on the ground
-		ny = 550;
+		ny = groundY;
 		$('g.forces line.reaction').attr("y2", - Number($('g.forces line.gravity').attr("y2")));
 		$('g.forces line.friction').attr("y2", 0);
 		$('line.speed').attr("y2",0);

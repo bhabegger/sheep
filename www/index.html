@@ -2,10 +2,11 @@
 	<head>
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/controls.js"></script>
+		<link rel="stylesheet" href="style.css"></link>
 	</head>
 	<body>
-		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-		width="1400" height="767" style="background-image: url(media/back-margot-001.png); background-size: 1400px 767px ">
+		<div class="container">
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1920 1360">
 			<defs>
 			    <marker id="Triangle"
 			      viewBox="0 0 10 10" refX="0" refY="5" 
@@ -15,7 +16,9 @@
 			      <path d="M 0 0 L 10 5 L 0 10 z" />
 			    </marker>
 			</defs>
-			<g transform="translate(200,550)" id="player1">
+			<image class="background" x="-40" y="-10" width="2000" height="1400" xlink:href="media/back-margot-001.png" />
+			<image class="background" style="display:none" x="0" y="0" width="1920" height="1360" xlink:href="media/back-alex-001.png" />
+			<g transform="translate(200,1300)" id="player1">
 				<image x="0" y="0" width="280" height="170"
 					xlink:href="media/sheep-alex.png" />
 				<g transform="translate(140,90)" style="display: none">
@@ -30,6 +33,9 @@
 					<line class="speed"          x1="0" y1="0" x2="0"  y2="0"   fill="none" stroke="purple" stroke-width="5" marker-end="url(#Triangle)"  />
 				</g>
 			</g>
+			<rect x="-2000" y="0" width="2000" fill="black" height="1360" />
+			<rect x="1920" y="0" width="2000" fill="black" height="1360" />
 		</svg>
+		</div>
 	</body>
 </html>
