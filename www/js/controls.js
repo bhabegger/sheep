@@ -98,6 +98,17 @@ $(function(){
 	$('body').on('keypress', function(evt) {
 		if(evt.which == 32) {
 			$('body').toggleClass("showDynamics");
+		} else if(evt.which == 97) {
+			$('#player1 image').fadeOut();
+			$('#player1 image.alex').fadeIn();
+		} else if(evt.which == 122) {
+			$('#player1 image').fadeOut();
+			$('#player1 image.zelie').fadeIn();
+		} else if(evt.which == 98) {
+			$('#player1 image').fadeOut();
+			$('#player1 image.benjamin').fadeIn();
+		} else {
+			console.log(evt.which);
 		}
 	});
 	setInterval(update,100);
